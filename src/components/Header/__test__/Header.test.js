@@ -1,13 +1,16 @@
 import { render, screen } from "@testing-library/react";
 import Header from "../Header";
 
-// getBy
-it("should render same text pass into title prop", () => {
-  render(<Header title="My header" />);
+describe("Header", () => {
+  it("should render same text pass into title prop", () => {
+    render(<Header title="My header" />);
 
-  const headingElement = screen.getByText(/my header/i);
-  expect(headingElement).toBeInTheDocument();
+    const headingElement = screen.getByText(/my header/i);
+    expect(headingElement).toBeInTheDocument();
+  });
 });
+
+// getBy
 
 // it("should heading element exist", () => {
 //   render(<Header title="My header" />);
@@ -24,6 +27,7 @@ it("should render same text pass into title prop", () => {
 // });
 
 // findBy
+
 // it("should content cats text", async () => {
 //   render(<Header />);
 
@@ -32,6 +36,7 @@ it("should render same text pass into title prop", () => {
 // });
 
 // queryBy
+
 // it("should not content dogs text", () => {
 //   render(<Header />);
 
