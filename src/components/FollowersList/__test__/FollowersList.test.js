@@ -1,7 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
+import axios from "axios";
+
+import response from "./response";
 
 import FollowersList from "../FollowersList";
+
+jest.mock("axios");
 
 function MockFollowersList() {
   return (
@@ -13,6 +18,8 @@ function MockFollowersList() {
 
 describe("FollowersList", () => {
   it("should render follower item", async () => {
+    axios.get.mockResolvedValue(response);
+
     render(<MockFollowersList />);
 
     const firstFollowerItem = await screen.findByTestId("follower-item-0");
