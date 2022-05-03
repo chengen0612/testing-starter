@@ -20,11 +20,11 @@ describe("FollowersList", () => {
     expect(firstFollowerItem).toBeInTheDocument();
   });
 
-  it("should render same amount of follower items as expected", async () => {
-    render(<MockFollowersList />);
+  // it("should render same amount of follower items as expected", async () => {
+  //   render(<MockFollowersList />);
 
-    const followerItems = await screen.findAllByTestId(/^follower-item/i);
+  //   const followerItems = await screen.findAllByTestId(/^follower-item/i);
 
-    expect(followerItems).toHaveLength(5);
-  });
+  //   expect(followerItems).toHaveLength(5);
+  // });
 });
