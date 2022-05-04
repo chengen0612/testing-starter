@@ -1,13 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import { setupServer } from "msw/node";
-import { rest } from "msw";
 
+import { server, rest } from "../../../testServer";
 import response from "./response";
 
 import FollowersList from "../FollowersList";
 
-const server = setupServer(
+server.use(
   rest.get("https://randomuser.me/api/", (req, res, ctx) => {
     // const amount = req.url.searchParams.get("results");
     // console.log("amount", amount);
@@ -25,10 +24,6 @@ function MockFollowersList() {
 }
 
 describe("FollowersList", () => {
-  beforeAll(() => server.listen());
-  afterEach(() => server.resetHandlers());
-  afterAll(() => server.close());
-
   it("should render follower item", async () => {
     render(<MockFollowersList />);
 
